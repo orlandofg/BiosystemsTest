@@ -6,20 +6,27 @@ using System.Threading.Tasks;
 
 namespace BiosystemsTest.Clases
 {
-    public class SetClass
+    /// <summary>
+    /// Clase para el tratamiento de un Set
+    /// </summary>
+    public class SetClass : JuegoBase
     {
         public SetClass()
         {
             Juegos = new List<JuegoClass>();
             AddJuego();
         }
+
+        // lista de juegos del set
         public List<JuegoClass> Juegos { get; private set; }
 
+        // acceso al juego actual
         public JuegoClass CurrentJuego => Juegos.Last();
+        // acceso al punto actual
         public PuntoClass CurrentPunto => CurrentJuego.Puntos;
-        public int CountJuegosGanados => Juegos.Count(j => j.EsGanador);
+
         public int CountPuntos => Juegos.Sum(j => j.Puntos.Count);
-        public bool EsGanador { get; set; }
+        public int CountJuegosGanados => Juegos.Count(j => j.EsGanador);
 
         public JuegoClass AddJuego()
         {
@@ -29,22 +36,21 @@ namespace BiosystemsTest.Clases
         }
 
         // --- 
-        public bool Gana()
+        public override bool Gana()
         {
-            CurrentJuego.Gana();
-            return CurrentJuego.EsFin;
+            return CurrentJuego.Gana();
         }
-        public void Pierde()
+        public override void Pierde()
         {
             CurrentJuego.Pierde();
         }
 
-        public string GetInfo()
+        public override string GetInfo()
         {
             string info = "";
             for(int i = 0; i < Juegos.Count; i++)
             {
-                info += $"[{i + 1}]: {Juegos[i].Puntos.Info} ";
+                info += $"[{i + 1}]: {Juegos[i].Puntos.GetInfo()} ";
             }
             return info;
         }

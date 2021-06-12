@@ -6,26 +6,32 @@ using System.Threading.Tasks;
 
 namespace BiosystemsTest.Clases
 {
-    public class JuegoClass
+    /// <summary>
+    /// Clase para el tratamiento de un Juego
+    /// </summary>
+    public class JuegoClass: JuegoBase
     {
         public JuegoClass()
         {
             Puntos = new();
         }
+
+        // control de puntos del Juego
         public PuntoClass Puntos { get; private set; }
 
-        public bool EsGanador { get; set; }
-
-        public bool EsFin => Puntos.EsFin;
-
-        public void Gana()
+        public override bool Gana()
         {
-            Puntos.Gana();
+            return Puntos.Gana();
         }
 
-        public void Pierde()
+        public override void Pierde()
         {
             Puntos.Pierde();
+        }
+
+        public override string GetInfo()
+        {
+            return Puntos.GetInfo();
         }
     }
 }

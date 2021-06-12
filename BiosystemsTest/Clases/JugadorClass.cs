@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BiosystemsTest.Clases
 {
+    /// <summary>
+    /// Clase para gestión de un jugador: datos y control de puntuación del mismo
+    /// </summary>
     public class JugadorClass
     {
         public JugadorClass(string nombre)
@@ -15,11 +18,14 @@ namespace BiosystemsTest.Clases
         }
         public string Nombre { get; set; }
         
+        // control de puntuación del jugaor
         public PuntuacionClass Puntuacion { get; private set; }
 
+        // set actual jugado
         public SetClass CurrentSet => Puntuacion.CurrentSet;
         public int CountSetsGanados => Puntuacion.Sets.Count(s => s.EsGanador);
 
+        // es ganador del partido
         public bool EsGanador { get; set; }
 
         public void AddJuego()

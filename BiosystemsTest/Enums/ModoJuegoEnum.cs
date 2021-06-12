@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BiosystemsTest.Enums
 {
-    enum ModoJuegoEnum
+    public enum ModoJuegoEnum
     {
         TresSets,
         CincoSets

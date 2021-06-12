@@ -4,6 +4,13 @@ using System;
 
 namespace BiosystemsTest
 {
+    /// <summary>
+    /// Programa que simula un partido de tenis
+    /// ----------------------------------------
+    /// El primer argumento de la ejecución indica el modo:
+    ///     '0': a 3 sets
+    ///     '1': a 5 sets
+    /// </summary>
     class Program
     {
         static void Main(string[] args)

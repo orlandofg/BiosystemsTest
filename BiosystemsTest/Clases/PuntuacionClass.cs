@@ -1,22 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BiosystemsTest.Clases
 {
-    public class PuntuacionClass
+    /// <summary>
+    /// Control de puntuación para un jugador
+    /// </summary>
+    public class PuntuacionClass : JuegoBase
     {
         public PuntuacionClass()
         {
             Sets = new();
             AddSet();
         }
+
+        // lista de sets
         public List<SetClass> Sets { get; private set; }
 
+        // set actual
         public SetClass CurrentSet => Sets.Last();
 
+        // puntos jugados (para control de limite de partido)
         public int CountPuntos => Sets.Sum(s => s.CountPuntos);
 
         public SetClass AddSet()
@@ -26,19 +30,19 @@ namespace BiosystemsTest.Clases
             return set;
         }
 
-        public bool Gana()
+        public override bool Gana()
         {
             return CurrentSet.Gana();
         }
-        public void Pierde()
+        public override void Pierde()
         {
             CurrentSet.Pierde();
         }
 
-        public string GetInfo()
+        public override string GetInfo()
         {
             string info = "";
-            for(int i = 0; i < Sets.Count; i++)
+            for (int i = 0; i < Sets.Count; i++)
             {
                 info += $"SET {i + 1}: {Sets[i].GetInfo()}\r\n\t";
             }
