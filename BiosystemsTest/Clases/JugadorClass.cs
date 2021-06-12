@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BiosystemsTest.Clases
 {
-    class JugadorClass
+    public class JugadorClass
     {
         public JugadorClass(string nombre)
         {
