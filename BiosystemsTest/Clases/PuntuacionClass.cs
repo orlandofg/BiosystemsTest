@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BiosystemsTest.Clases
 {
-    public class PuntuacionClass
+    class PuntuacionClass
     {
         public PuntuacionClass()
         {
